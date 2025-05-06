@@ -1,0 +1,2 @@
+# Platfo
+vanilla javascript game
