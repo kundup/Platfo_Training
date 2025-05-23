@@ -1,0 +1,4 @@
+hello worlds printed
+draw and spwaning function used
+update individually and filter
+more object usage
