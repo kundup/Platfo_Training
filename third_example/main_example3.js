@@ -9,12 +9,7 @@ const HEIGHT = canvasel.height = 800;
 
 let rectList = []
 
-const rectColor = {
-    color1 : "green",
-    color2 : "pink",
-    color3 : "red",
-    color4 : "black"
-}
+const rectColor = ["black", "green", "pink", "red", "yellow"];
 
 function spawnRect(n){
     for (let i = 0; i < n; i++){
@@ -23,7 +18,7 @@ function spawnRect(n){
             y: Math.random() * 100 + 200,
             width: Math.random() * 100,
             height : Math.random() * 100,
-            color : rectColor[`color${Math.floor(Math.random() * 4 + 1)}`]        
+            color : rectColor[Math.floor(Math.random() * rectColor.length)]        
         }
         rectList.push(rect)
     }
@@ -32,8 +27,8 @@ spawnRect(4);
 drawRect();
 
 function drawRect (){
-    rectList.forEach((rects)=>{
-        context.fillStyle = rects.color;
-        context.fillRect(rects.x, rects.y, rects.width,rects.height)
+    rectList.forEach(({x, y, ...rest})=>{
+        context.fillStyle = rest.color;
+        context.fillRect(x, y, rest.width, rest.height)
     })
 }
