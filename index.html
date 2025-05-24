@@ -2,11 +2,25 @@
 <html>
     <head>
         <title>third example</title>
+        <style>
+            body {
+                background-color: beige;
+                font-family: Arial, sans-serif;
+                margin: 0px;
+                padding: 20px;
+            } 
+            
+            canvas {
+                border: 1px solid black;                
+            }
+        </style>
     </head>
     <body>
         <h1>hello world</h1>
-        <p>this is a simple example</p> 
-        <canvas id="canvas"></canvas>       
+        <p>this is a simple example</p>
+        <div id="canvas-container" style="position: relative; width: 800px; height: 800px;">
+            <canvas id="canvas"></canvas>
+        </div>          
         <script src= "third_example/main_example3.js"></script>        
     </body>
 </html>
