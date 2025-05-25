@@ -1,3 +1,5 @@
+import { Player } from "./player.js";
+
 const x = "ali";
 console.log(`hello${x}`);
 
@@ -7,8 +9,6 @@ const context = canvasel.getContext("2d");
 const WIDTH = canvasel.width =  600;
 const HEIGHT = canvasel.height = 600;
 
-let velocityX = 2;
-let velocityY = 1;
 let rectList = []
 const rectColor = ["brown", "green", "pink", "red", "orange"];
 
@@ -17,14 +17,15 @@ function spawnRect(n = 1){
         let rect = {
             width: 20,
             height : 20,
-            x: Math.random() * WIDTH / 2,
+            x: Math.random() * WIDTH / 8,
             y: Math.random() * (HEIGHT - 20),            
-            color : rectColor[Math.floor(Math.random() * rectColor.length)]        
+            color : rectColor[Math.floor(Math.random() * rectColor.length)],
+            velocityX : Math.random() * 1.5        
         }
         rectList.push(rect)
     }
 }
-spawnRect(5);
+spawnRect(20);
 
 function drawRect (){
     rectList.forEach(({x, y, ...rest})=>{
@@ -37,18 +38,22 @@ function updateRect(){
 
     let target_number = rectList.length;
     rectList.forEach((rect)=>{
-        rect.x+= velocityX;        
+        rect.x+= rect.velocityX;        
     })
 
     rectList = rectList.filter(rect=> rect.x < WIDTH);
     spawnRect(target_number - rectList.length);    
 }
 
+const player = new Player(WIDTH);
+
 function animate (){
     context.clearRect(0, 0, WIDTH, HEIGHT);
     drawRect();
     updateRect();
+    player.draw(context);
     requestAnimationFrame(animate)
 }
 
 animate();
+

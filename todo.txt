@@ -4,7 +4,8 @@ draw and spwaning function used -done
 3rd example; 
     update individually -done
     if the rect goes beyond the borders, try to spawn new rect object; - done
-    
+    player class will be added
+
 
 
 general usage :
