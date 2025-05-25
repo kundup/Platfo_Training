@@ -14,7 +14,7 @@ const rectColor = ["brown", "green", "blue", "red", "orange"];
 const speedMap = {
     green : 2,
     brown : 1,
-    pink : 1.5
+    blue : 1.5
 }
 
 function spawnRect(n = 1){
