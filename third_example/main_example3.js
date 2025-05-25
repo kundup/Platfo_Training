@@ -10,17 +10,23 @@ const WIDTH = canvasel.width =  600;
 const HEIGHT = canvasel.height = 600;
 
 let rectList = []
-const rectColor = ["brown", "green", "pink", "red", "orange"];
+const rectColor = ["brown", "green", "blue", "red", "orange"];
+const speedMap = {
+    green : 2,
+    brown : 1,
+    pink : 1.5
+}
 
 function spawnRect(n = 1){
     for (let i = 0; i < n; i++){
+        const color = rectColor[Math.floor(Math.random() * rectColor.length)];
         let rect = {
             width: 20,
             height : 20,
             x: Math.random() * WIDTH / 8,
             y: Math.random() * (HEIGHT - 20),            
-            color : rectColor[Math.floor(Math.random() * rectColor.length)],
-            velocityX : Math.random() * 1.5        
+            color : color,
+            velocityX : speedMap[color] ?? 1.25,       
         }
         rectList.push(rect)
     }
