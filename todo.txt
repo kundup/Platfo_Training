@@ -2,12 +2,12 @@ hello worlds printed -done
 draw and spwaning function used -done
 
 3rd example; 
-    update individually
-    if the rect goes beyond the borders, try to spawn new rect object; 
+    update individually -done
+    if the rect goes beyond the borders, try to spawn new rect object; - done
+    
 
 
 general usage :
-
 . more object usage
 . class usage.
 . try to use more computition.
