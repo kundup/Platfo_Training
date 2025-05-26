@@ -31,7 +31,7 @@ function spawnRect(n = 1){
         rectList.push(rect)
     }
 }
-spawnRect(20);
+spawnRect(10);
 
 function drawRect (){
     rectList.forEach(({x, y, ...rest})=>{
@@ -58,6 +58,7 @@ function animate (){
     drawRect();
     updateRect();
     player.draw(context);
+    player.update() 
     requestAnimationFrame(animate)
 }
 
