@@ -2,7 +2,7 @@ export class Bullet {
     constructor(x, y){
         this.x = x;
         this.y = y;
-        this.velocityx = 2;
+        this.speed = 2;
         this.color = "red";
         this.radius = 5;
     }

@@ -6,45 +6,40 @@ export class Player {
         this.x = this.width - 50;
         this.y = 100;
         this.velY = 15;
-        this.size = 25;
-        this.bullet = new Bullet(this.x, this.y);
+        this.size = 25;    
+        this.bulletList = [];
         this.addKeyboardControl();
-        this.fire = false;
+        
     }
     draw (ctx){
         ctx.fillStyle = "black";
         ctx.fillRect(this.x, this.y, this.size, this.size);
-        this.bullet.drawBullet(ctx);       
+        this.bulletList.forEach((bullets)=>{
+            bullets.drawBullet(ctx)
+        })       
     }
     update(){ 
-        
-        if (this.fire){
-            this.bullet.x -= 2;
-            if (this.bullet.x < 0){
-                this.fire = false;
-                this.bullet.x = this.x;
-                this.bullet.y = this.y;
-            }
-        }      
+        this.bulletList.forEach((bullet, index)=>{
+            bullet.x -= bullet.speed;
+            if (bullet.x < 0) {
+                this.bulletList.splice(index, 1)
+            } 
+        });        
     }
     addKeyboardControl (){
         window.addEventListener("keydown", event => {
             if (["ArrowUp", "ArrowDown", " "].includes(event.key)){
                 event.preventDefault()
             }
-            
-            if (event.key=== "ArrowUp"){
-                this.y -= this.velY
-                if (!this.fire) this.bullet.y = this.y
+            if (["ArrowUp", "ArrowDown"].includes(event.key)){
+                const dy = event.key === "ArrowDown"?this.velY: -this.velY;
+                this.y += dy;
+                //if(!this.fire) this.bullet.y = this.y;
             }
-            if(event.key === "ArrowDown"){
-                this.y += this.velY;
-                if (!this.fire) this.bullet.y = this.y
-            }
-            if(event.key === " " && !this.fire){
-                this.fire = true;
-                this.bullet.y = this.y; 
-                this.bullet.x = this.x;
+
+            if(event.key === " "){                
+                this.bulletList.push(new Bullet(this.x, this.y));
+                console.log(this.bulletList);
 
             }
         })
