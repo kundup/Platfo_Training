@@ -13,10 +13,5 @@ export class Bullet {
         ctx.beginPath();
         ctx.arc(this.x - this.radius, this.y + 2 * this.radius, this.radius, 0, Math.PI * 2);
         ctx.fill();
-    }
-
-    updateBullet(x, y){
-        this.x = x;
-        this.y = y;
-    }
+    }    
 }

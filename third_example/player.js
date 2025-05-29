@@ -26,25 +26,29 @@ export class Player {
             } 
         });        
     }
+
+    collision (others){
+        for (let i = this.bulletList.length -1 ; i >= 0; i--){
+            for (let j = others.lenght -1; j >= 0; j--) {
+
+
+            }
+        }
+    }
+    
     addKeyboardControl (){
-        window.addEventListener("keydown", event => {
+        window.addEventListener("keydown", event => {                        
             if (["ArrowUp", "ArrowDown", " "].includes(event.key)){
                 event.preventDefault()
             }
             if (["ArrowUp", "ArrowDown"].includes(event.key)){
                 const dy = event.key === "ArrowDown"?this.velY: -this.velY;
                 this.y += dy;
-                //if(!this.fire) this.bullet.y = this.y;
             }
-
             if(event.key === " "){                
                 this.bulletList.push(new Bullet(this.x, this.y));
                 console.log(this.bulletList);
-
             }
         })
-    }
+    }   
 }
- 
-
-

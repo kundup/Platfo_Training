@@ -6,7 +6,7 @@ draw and spwaning function used -done
     if the rect goes beyond the borders, try to spawn new rect object; - done
     player class will be added -done
     firing mechanism with space key
-    collision detection will be added
+    collision detection will be added (rectangle- circle collision detection)
 
 
 
