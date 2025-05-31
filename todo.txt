@@ -14,3 +14,7 @@ general usage :
 . more object usage
 . class usage.
 . try to use more computition.
+
+
+
+now; collision detection not effective. bullet, player and rect mechanism works well.

@@ -27,14 +27,6 @@ export class Player {
         });        
     }
 
-    collision (others){
-        for (let i = this.bulletList.length -1 ; i >= 0; i--){
-            for (let j = others.lenght -1; j >= 0; j--) {
-
-
-            }
-        }
-    }
     
     addKeyboardControl (){
         window.addEventListener("keydown", event => {                        

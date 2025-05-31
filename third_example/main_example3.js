@@ -51,6 +51,10 @@ function updateRect(){
     spawnRect(target_number - rectList.length);    
 }
 
+
+
+
+
 const player = new Player(WIDTH);
 
 function animate (){
