@@ -1,0 +1,1 @@
+// coin, fuel tank, heart, bomb, pill to make bigger

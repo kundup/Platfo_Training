@@ -1,8 +1,5 @@
 import { Player } from "./player.js";
 
-const x = "ali";
-console.log(`hello${x}`);
-
 const canvasel = document.getElementById("canvas");
 const context = canvasel.getContext("2d");
 
