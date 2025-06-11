@@ -1,5 +1,5 @@
-const CANVAS_WIDTH = 600;
-const CANVAS_HEIGHT = 600;
+const CANVAS_WIDTH = 800;
+const CANVAS_HEIGHT = 800;
 
 export {
     CANVAS_HEIGHT,

@@ -7,9 +7,7 @@ export class Player {
         this.y = 100;
         this.velY = 15;
         this.size = 25;    
-        this.bulletList = [];
-        this.addKeyboardControl();
-        
+        this.bulletList = [];        
     }
     draw (ctx){
         ctx.fillStyle = "black";
@@ -25,22 +23,11 @@ export class Player {
                 this.bulletList.splice(index, 1)
             } 
         });        
-    }
-
+    } 
     
-    addKeyboardControl (){
-        window.addEventListener("keydown", event => {                        
-            if (["ArrowUp", "ArrowDown", " "].includes(event.key)){
-                event.preventDefault()
-            }
-            if (["ArrowUp", "ArrowDown"].includes(event.key)){
-                const dy = event.key === "ArrowDown"?this.velY: -this.velY;
-                this.y += dy;
-            }
-            if(event.key === " "){                
-                this.bulletList.push(new Bullet(this.x, this.y));
-                console.log(this.bulletList);
-            }
-        })
-    }   
+    shoot (){
+        this.bulletList.push(new Bullet(this.x, this.y));
+        console.log(this.bulletList);
+    }
+       
 }

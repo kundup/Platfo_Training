@@ -3,6 +3,7 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./globals.js";
 export class Enemies{
 
     constructor(){
+        this.enemyNumber = Math.floor(Math.random() * 100);
         this.rectList = []
         this.rectColor = ["brown", "green", "blue", "red", "orange"];
         this.speedMap = {
@@ -10,10 +11,8 @@ export class Enemies{
             brown : 1,
             blue : 1.5
         }
-        this.spawnRect(5);
-
-    }   
-    
+        this.spawnRect(this.enemyNumber);
+    }       
     spawnRect(n = 1){
         for (let i = 0; i < n; i++){
             const color = this.rectColor[Math.floor(Math.random() * this.rectColor.length)];
@@ -44,6 +43,6 @@ export class Enemies{
     
         this.rectList = this.rectList.filter(rect=> rect.x < CANVAS_WIDTH);
         this.spawnRect(target_number - this.rectList.length);    
-    }   
-    
+    }       
 }
+

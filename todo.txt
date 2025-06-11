@@ -18,3 +18,6 @@ general usage :
 
 
 now; collision detection not effective. bullet, player and rect mechanism works well.
+
+
+target; importing sea background, ships and plane for player. plane is able to low pique
