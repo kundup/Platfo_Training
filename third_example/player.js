@@ -29,5 +29,9 @@ export class Player {
         this.bulletList.push(new Bullet(this.x, this.y));
         console.log(this.bulletList);
     }
+
+    move (amount){
+        this.y += amount
+    }
        
 }

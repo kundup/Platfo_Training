@@ -12,7 +12,11 @@ const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
 
-KeyboardControl(player);
+KeyboardControl({
+    onUp : () => player.move(-10),
+    onDown : () => player.move(10),
+    onShoot : () => player.shoot(),
+});
 
 function animate (){
     

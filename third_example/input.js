@@ -1,18 +1,17 @@
-export function KeyboardControl(player){
-
+export function KeyboardControl(controls = {}){
     window.addEventListener("keydown", event => {                        
         if (["ArrowUp", "ArrowDown", " "].includes(event.key)){
             event.preventDefault();
-
         }
-        if (["ArrowUp", "ArrowDown"].includes(event.key)){
-            const dy = event.key === "ArrowDown"?player.velY: -player.velY;
-            player.y += dy;
+        if (event.key === "ArrowDown"){
+            controls.onDown?.();
+        }
+        if (event.key === "ArrowUp"){
+            controls.onUp?.();
         }
         if(event.key === " "){            
-            player.shoot();           
+            controls.onShoot?.();           
         }
     })
-
 }
         
