@@ -11,6 +11,7 @@ const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
+const backGroundImage = document.getElementById("background");
 
 KeyboardControl({
     onUp : () => player.move(-10),
@@ -21,6 +22,7 @@ KeyboardControl({
 function animate (){
     
     context.clearRect(0, 0, WIDTH, HEIGHT);
+    context.drawImage(backGroundImage, 0, 0);
     enemies.drawRect(context);
     enemies.updateRect();
     player.draw(context);
@@ -28,5 +30,15 @@ function animate (){
     requestAnimationFrame(animate)
 }
 
-animate();
+// check the images are loaded
+if (backGroundImage.complete){
+    animate();
+} else {
+    backGroundImage.onload = () => {
+        animate();
+    }
+}
+
+
+
 
