@@ -12,6 +12,7 @@ const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
 const backGroundImage = document.getElementById("background");
+const bgSpeed = 1;
 
 KeyboardControl({
     onUp : () => player.move(-10),
@@ -19,10 +20,20 @@ KeyboardControl({
     onShoot : () => player.shoot(),
 });
 
+let backgroundX = 0
+
 function animate (){
     
     context.clearRect(0, 0, WIDTH, HEIGHT);
-    context.drawImage(backGroundImage, 0, 0);
+
+    backgroundX -= bgSpeed; 
+    if (backgroundX <= -WIDTH) {
+        backgroundX = 0; 
+    }
+
+    context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
+    context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
+
     enemies.drawRect(context);
     enemies.updateRect();
     player.draw(context);

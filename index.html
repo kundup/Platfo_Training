@@ -13,13 +13,30 @@
             canvas {
                 border: 1px solid black;                
             }
+            #score {
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                font-size: 20px bold;
+                color: yellow
+            }
+
+            #weather {
+                position: absolute;                
+                top: 50px;
+                left: 30px;
+                font-size: 20px bold;
+                color: yellow; 
+            }
+
+
         </style>
     </head>
     <body>
-        <h1>hello world</h1>
-        <p>this is a simple example</p>
-        <div id="canvas-container" style="position: relative; width: 800px; height: 800px;">
-            <canvas id="canvas"></canvas>            
+        <div id="game-container">
+            <canvas id="canvas"></canvas> 
+            <div id="score">Skor : 0</div> 
+            <div id="weather">Weather : Sunny </div>          
         </div>   
         <img id="background" src="third_example/background.png" style="display: none;"/>       
         <script type="module" src= "third_example/main_example3.js"></script>        
