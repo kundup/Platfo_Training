@@ -2,6 +2,7 @@ import { Player } from "./player.js";
 import { Enemies } from "./enemy.js";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./globals.js";
 import { KeyboardControl } from "./input.js";
+import { Snow, Rain } from "./weather.js";
 
 const canvasel = document.getElementById("canvas");
 const context = canvasel.getContext("2d");
@@ -11,8 +12,14 @@ const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
+const rain = new Rain();
+const snow = new Snow();
+const sunny = "sunny";
+const weatherSystem = [sunny, rain, snow];
 const backGroundImage = document.getElementById("background");
 const bgSpeed = 1;
+let currentSystem = weatherSystem[Math.floor(Math.random() * 3)];
+let backgroundX = 0;
 
 KeyboardControl({
     onUp : () => player.move(-10),
@@ -20,7 +27,18 @@ KeyboardControl({
     onShoot : () => player.shoot(),
 });
 
-let backgroundX = 0
+function weatherSystemDetermination(ctx){
+    if (currentSystem === sunny){
+        return;
+    }
+    else if (currentSystem === rain){
+        rain.draw(ctx);
+        rain.updateRain();
+    } else {
+        snow.draw(ctx);
+        snow.updateSnow();
+    }
+}
 
 function animate (){
     
@@ -33,7 +51,7 @@ function animate (){
 
     context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
     context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
-
+    weatherSystemDetermination(context);
     enemies.drawRect(context);
     enemies.updateRect();
     player.draw(context);

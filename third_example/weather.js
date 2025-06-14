@@ -3,8 +3,8 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR} from "./globals.js"
 export class Snow {
     constructor (){ 
         this.snowFlakes = [];        
-        this.radius = 20;
-        this.speed = 1
+        this.radius = 4;
+        this.speed = 2;
         this.spawnSnow();
     
     }
@@ -23,8 +23,9 @@ export class Snow {
 
             const snowflake = {
                 x : Math.random() * CANVAS_WIDTH,
-                y : Math.random() * CANVAS_HEIGHT,
+                y : Math.random() * -CANVAS_HEIGHT / 2 ,
                 flakecolor : COLOR.snow,
+                speed : Math.random() * this.speed + 2,
             }
 
             this.snowFlakes.push(snowflake);
@@ -35,20 +36,19 @@ export class Snow {
 
         const targetSnowNumber = this.snowFlakes.length;
         this.snowFlakes.forEach((flakes)=>{
-            flakes.y += this.speed;
+            flakes.y += flakes.speed;
         })
 
-        this.rainFlakes.filter(flakes => flakes.y < CANVAS_HEIGHT);
+        this.snowFlakes = this.snowFlakes.filter(flakes => flakes.y < CANVAS_HEIGHT);
         this.spawnSnow(targetSnowNumber - this.snowFlakes.length);
     }
-
 }
 
 export class Rain {
     constructor (){     
         this.rainFlakes = [];        
-        this.radius = 10;
-        this.speed = 2
+        this.radius = 2;
+        this.speed = 8;
         this.spawnRain();    
     }
 
@@ -61,26 +61,26 @@ export class Rain {
         })     
     }
 
-    spawnRain (n = 100){
+    spawnRain (n = 200){
         for (let i = 0; i < n; i ++){
 
             const rainflake = {
                 x : Math.random() * CANVAS_WIDTH,
-                y : Math.random() * CANVAS_HEIGHT,
+                y : Math.random() * -CANVAS_HEIGHT / 2,
                 flakecolor : COLOR.rain,
+                speed : Math.random() * this.speed + 4,
             }
 
             this.rainFlakes.push(rainflake);
-        }
-        
+        }        
     }
     updateRain(){
         const targetRainNumber = this.rainFlakes.length;
         this.rainFlakes.forEach((flakes)=>{
-            flakes.y += this.speed;
+            flakes.y += flakes.speed;
         })
 
-        this.rainFlakes.filter(flakes => flakes.y < CANVAS_HEIGHT);
+        this.rainFlakes = this.rainFlakes.filter(flakes => flakes.y <= CANVAS_HEIGHT);
         this.spawnRain(targetRainNumber - this.rainFlakes.length);
     }
 }
