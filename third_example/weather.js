@@ -3,8 +3,8 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR} from "./globals.js"
 export class Snow {
     constructor (){ 
         this.snowFlakes = [];        
-        this.radius = 4;
-        this.speed = 2;
+        this.radius = 2.5;
+        this.speed = 1.5;
         this.spawnSnow();
     
     }
@@ -18,7 +18,7 @@ export class Snow {
         })     
     }
 
-    spawnSnow (n = 100){
+    spawnSnow (n = 50){
         for (let i = 0; i < n; i ++){
 
             const snowflake = {

@@ -10,6 +10,7 @@ const context = canvasel.getContext("2d");
 const WIDTH = canvasel.width = CANVAS_WIDTH;
 const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 
+const weatherDiv = document.getElementById("weather");
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
 const rain = new Rain();
@@ -26,6 +27,18 @@ KeyboardControl({
     onDown : () => player.move(10),
     onShoot : () => player.shoot(),
 });
+
+function WeatherText(){
+    if (currentSystem === sunny){
+        weatherDiv.innerText = "Weather : Sunny"
+    }
+    else if (currentSystem instanceof Rain){
+        weatherDiv.innerText = "Weather : Rain"        
+    }     
+    else if (currentSystem instanceof Snow) {
+        weatherDiv.innerText = "Weather : Snow"
+    }
+}
 
 function weatherSystemDetermination(ctx){
     if (currentSystem === sunny){
@@ -52,10 +65,11 @@ function animate (){
     context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
     context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
     weatherSystemDetermination(context);
+    WeatherText();
     enemies.drawRect(context);
     enemies.updateRect();
     player.draw(context);
-    player.update() 
+    player.update();
     requestAnimationFrame(animate)
 }
 
