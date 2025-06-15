@@ -14,7 +14,7 @@ const weatherDiv = document.getElementById("weather");
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
 const weatherSystem = [new Sunny(), new Rain(), new Snow()];
-let currentSystem = weatherSystem[Math.floor(Math.random() * weatherSystem.length)];
+const currentSystem = weatherSystem[Math.floor(Math.random() * weatherSystem.length)];
 const backGroundImage = document.getElementById("background");
 const bgSpeed = 1;
 let backgroundX = 0;
@@ -26,15 +26,7 @@ KeyboardControl({
 });
 
 function weatherText(){
-    if (currentSystem instanceof Sunny){
-        weatherDiv.innerText = "Weather : Sunny"
-    }
-    else if (currentSystem instanceof Rain){
-        weatherDiv.innerText = "Weather : Rain"        
-    }     
-    else if (currentSystem instanceof Snow) {
-        weatherDiv.innerText = "Weather : Snow"
-    }
+    weatherDiv.innerText = `Weather : ${currentSystem.name}`;
 }
 function weatherSystemDetermination(ctx){
     if (currentSystem instanceof Sunny){

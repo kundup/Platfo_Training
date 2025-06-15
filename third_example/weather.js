@@ -6,7 +6,7 @@ export class Snow {
         this.radius = 2.5;
         this.speed = 1;
         this.spawnSnow();
-    
+        this.name = "Snow";    
     }
 
     draw (ctx) {  
@@ -49,7 +49,8 @@ export class Rain {
         this.rainFlakes = [];        
         this.radius = 2;
         this.speed = 8;
-        this.spawnRain();    
+        this.spawnRain();
+        this.name = "Rain";   
     }
 
     draw (ctx) {  
@@ -87,6 +88,6 @@ export class Rain {
 
 export class Sunny {
     constructor(){
-        this.name = "sunny";
+        this.name = "Sunny";
     }
 }
