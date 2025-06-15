@@ -5,8 +5,6 @@ const COLOR = {
     rain : "lightgray",
     hudColor : "rgba(0, 0, 0, 0.25)"
 }
-
-
 export {
     CANVAS_HEIGHT,
     CANVAS_WIDTH,

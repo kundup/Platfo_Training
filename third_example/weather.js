@@ -20,14 +20,12 @@ export class Snow {
 
     spawnSnow (n = 50){
         for (let i = 0; i < n; i ++){
-
             const snowflake = {
                 x : Math.random() * CANVAS_WIDTH,
                 y : Math.random() * -CANVAS_HEIGHT ,
                 flakecolor : COLOR.snow,
                 speed : Math.random() * this.speed + 1.5,
             }
-
             this.snowFlakes.push(snowflake);
         }
         

@@ -3,7 +3,7 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT } from "./globals.js";
 export class Enemies{
 
     constructor(){
-        this.enemyNumber = Math.floor(Math.random() * 100);
+        this.enemyNumber = Math.floor(Math.random() * 10);
         this.rectList = []
         this.rectColor = ["brown", "green", "blue", "red", "orange"];
         this.speedMap = {
