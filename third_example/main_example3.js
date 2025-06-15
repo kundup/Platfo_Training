@@ -1,8 +1,9 @@
 import { Player } from "./player.js";
 import { Enemies } from "./enemy.js";
-import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./globals.js";
+import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR } from "./globals.js";
 import { KeyboardControl } from "./input.js";
 import { Snow, Rain, Sunny } from "./weather.js";
+import { Graphics } from "./ui.js";
 
 const canvasel = document.getElementById("canvas");
 const context = canvasel.getContext("2d");
@@ -11,6 +12,7 @@ const WIDTH = canvasel.width = CANVAS_WIDTH;
 const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 
 const weatherDiv = document.getElementById("weather");
+const graphics = new Graphics();
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
 const weatherSystem = [new Sunny(), new Rain(), new Snow()];
@@ -38,6 +40,9 @@ function weatherSystemDetermination(ctx){
     }    
 }
 
+weatherText();
+
+
 function animate (){    
     context.clearRect(0, 0, WIDTH, HEIGHT);
     backgroundX -= bgSpeed; 
@@ -46,10 +51,13 @@ function animate (){
     }
     context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
     context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
+    graphics.drawHud(context, COLOR.hudColor); // hud drawing on top
+    //weather system
     weatherSystemDetermination(context);
-    weatherText();
+    //enemies animation
     enemies.drawRect(context);
     enemies.updateRect();
+    // player animation
     player.draw(context);
     player.update();
     requestAnimationFrame(animate)
@@ -60,7 +68,7 @@ if (backGroundImage.complete){
     animate();
 } else {
     backGroundImage.onload = () => {
-        animate();
+        animate();        
     }
 }
 
