@@ -4,7 +4,7 @@ export class Snow {
     constructor (){ 
         this.snowFlakes = [];        
         this.radius = 2.5;
-        this.speed = 1.5;
+        this.speed = 1;
         this.spawnSnow();
     
     }
@@ -23,16 +23,16 @@ export class Snow {
 
             const snowflake = {
                 x : Math.random() * CANVAS_WIDTH,
-                y : Math.random() * -CANVAS_HEIGHT / 2 ,
+                y : Math.random() * -CANVAS_HEIGHT ,
                 flakecolor : COLOR.snow,
-                speed : Math.random() * this.speed + 2,
+                speed : Math.random() * this.speed + 1.5,
             }
 
             this.snowFlakes.push(snowflake);
         }
         
     }
-    updateSnow(){
+    update(){
 
         const targetSnowNumber = this.snowFlakes.length;
         this.snowFlakes.forEach((flakes)=>{
@@ -74,7 +74,7 @@ export class Rain {
             this.rainFlakes.push(rainflake);
         }        
     }
-    updateRain(){
+    update(){
         const targetRainNumber = this.rainFlakes.length;
         this.rainFlakes.forEach((flakes)=>{
             flakes.y += flakes.speed;
@@ -82,5 +82,11 @@ export class Rain {
 
         this.rainFlakes = this.rainFlakes.filter(flakes => flakes.y <= CANVAS_HEIGHT);
         this.spawnRain(targetRainNumber - this.rainFlakes.length);
+    }
+}
+
+export class Sunny {
+    constructor(){
+        this.name = "sunny";
     }
 }

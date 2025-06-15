@@ -2,7 +2,7 @@ import { Player } from "./player.js";
 import { Enemies } from "./enemy.js";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./globals.js";
 import { KeyboardControl } from "./input.js";
-import { Snow, Rain } from "./weather.js";
+import { Snow, Rain, Sunny } from "./weather.js";
 
 const canvasel = document.getElementById("canvas");
 const context = canvasel.getContext("2d");
@@ -13,13 +13,10 @@ const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 const weatherDiv = document.getElementById("weather");
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
-const rain = new Rain();
-const snow = new Snow();
-const sunny = "sunny";
-const weatherSystem = [sunny, rain, snow];
+const weatherSystem = [new Sunny(), new Rain(), new Snow()];
+let currentSystem = weatherSystem[Math.floor(Math.random() * weatherSystem.length)];
 const backGroundImage = document.getElementById("background");
 const bgSpeed = 1;
-let currentSystem = weatherSystem[Math.floor(Math.random() * 3)];
 let backgroundX = 0;
 
 KeyboardControl({
@@ -28,8 +25,8 @@ KeyboardControl({
     onShoot : () => player.shoot(),
 });
 
-function WeatherText(){
-    if (currentSystem === sunny){
+function weatherText(){
+    if (currentSystem instanceof Sunny){
         weatherDiv.innerText = "Weather : Sunny"
     }
     else if (currentSystem instanceof Rain){
@@ -39,33 +36,26 @@ function WeatherText(){
         weatherDiv.innerText = "Weather : Snow"
     }
 }
-
 function weatherSystemDetermination(ctx){
-    if (currentSystem === sunny){
+    if (currentSystem instanceof Sunny){
         return;
     }
-    else if (currentSystem === rain){
-        rain.draw(ctx);
-        rain.updateRain();
-    } else {
-        snow.draw(ctx);
-        snow.updateSnow();
-    }
+    else {
+        currentSystem.draw(ctx);
+        currentSystem.update();
+    }    
 }
 
-function animate (){
-    
+function animate (){    
     context.clearRect(0, 0, WIDTH, HEIGHT);
-
     backgroundX -= bgSpeed; 
     if (backgroundX <= -WIDTH) {
         backgroundX = 0; 
     }
-
     context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
     context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
     weatherSystemDetermination(context);
-    WeatherText();
+    weatherText();
     enemies.drawRect(context);
     enemies.updateRect();
     player.draw(context);
