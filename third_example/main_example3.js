@@ -4,6 +4,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR } from "./globals.js";
 import { KeyboardControl } from "./input.js";
 import { Snow, Rain, Sunny } from "./weather.js";
 import { Graphics } from "./ui.js";
+import { Bullet } from "./bullet.js"
 
 const canvasel = document.getElementById("canvas");
 const context = canvasel.getContext("2d");
@@ -12,6 +13,7 @@ const WIDTH = canvasel.width = CANVAS_WIDTH;
 const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 
 const weatherDiv = document.getElementById("weather");
+const bullet = new Bullet();
 const graphics = new Graphics();
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
@@ -24,7 +26,10 @@ let backgroundX = 0;
 KeyboardControl({
     onUp : () => player.move(-10),
     onDown : () => player.move(10),
-    onShoot : () => player.shoot(),
+    onShoot : () => {
+        player.shoot(),
+        bullet.fire = true;
+    }
 });
 
 function weatherText(){
@@ -57,6 +62,8 @@ function animate (){
     //enemies animation
     enemies.drawRect(context);
     enemies.updateRect();
+    bullet.draw(context);
+    bullet.update();
     // player animation
     player.draw(context);
     player.update();

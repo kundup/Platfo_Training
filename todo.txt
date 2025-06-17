@@ -1,23 +1,42 @@
-hello worlds printed -done
-draw and spwaning function used -done
+player ;
 
-3rd example; 
-    update individually -done
-    if the rect goes beyond the borders, try to spawn new rect object; - done
-    player class will be added -done
-    firing mechanism with space key
-    collision detection will be added (rectangle- circle collision detection)
+    animation for helicopter completed.
+    helicopter should move forward a bit 
 
 
+enemy ;
 
-general usage :
-. more object usage
-. class usage.
-. try to use more computition.
+    enemy birds;
+    enemy seabots
+    enemy tanks
+
+grafik;
+    show the invemtory of bullets
+    show the health
 
 
+entity;
 
-now; collision detection not effective. bullet, player and rect mechanism works well.
+    make fuel tanks
+    make fishes
+    hearth
 
 
-target; importing sea background, ships and plane for player. plane is able to low pique
+general;
+    collision detection
+    bomb effect
+
+
+bullet;
+    make bomb for helicopter
+    make rocket for helicopter
+    move to the bullet class
+
+
+weather;
+    have the weather integrated with season;
+
+season;
+    needs to be creates
+
+globals;

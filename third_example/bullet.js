@@ -1,17 +1,23 @@
 export class Bullet {
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
-        this.speed = 2;
-        this.color = "red";
-        this.radius = 5;
+    constructor(){
+        this.x = 600;
+        this.y = 150;
+        this.speed = 3;
+        this.width = this.height = 18;
+        this.image = document.getElementById("bullet");
+        this.fire = false;
     }
+    draw(ctx){
 
-    drawBullet(ctx){
-
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x - this.radius, this.y + 2 * this.radius, this.radius, 0, Math.PI * 2);
-        ctx.fill();
-    }    
+        // ctx.fillStyle = this.color;
+        // ctx.beginPath();
+        // ctx.arc(this.x - this.radius, this.y + 2 * this.radius, this.radius, 0, Math.PI * 2);
+        // ctx.fill();
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }     
+    update (){
+        if (this.fire){
+            this.x -= this.speed;
+        }        
+    }
 }

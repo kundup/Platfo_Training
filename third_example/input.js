@@ -10,7 +10,9 @@ export function KeyboardControl(controls = {}){
             controls.onUp?.();
         }
         if(event.key === " "){            
-            controls.onShoot?.();           
+            controls.onShoot?.();
+         
+
         }
     })
 }
