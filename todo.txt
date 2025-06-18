@@ -28,6 +28,8 @@ general;
 
 
 bullet;
+    ** a pair of bullet now fired when pressing space;
+
     make bomb for helicopter
     make rocket for helicopter
     move to the bullet class
