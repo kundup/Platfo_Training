@@ -27,8 +27,7 @@ KeyboardControl({
     onUp : () => player.move(-10),
     onDown : () => player.move(10),
     onShoot : () => {
-        player.shoot(),
-        bullet.fire = true;
+        player.shoot()
     }
 });
 
@@ -61,9 +60,7 @@ function animate (){
     weatherSystemDetermination(context);
     //enemies animation
     enemies.drawRect(context);
-    enemies.updateRect();
-    bullet.draw(context);
-    bullet.update();
+    enemies.updateRect();    
     // player animation
     player.draw(context);
     player.update();
