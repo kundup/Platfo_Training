@@ -2,7 +2,7 @@ player ;
 
     animation for helicopter completed.
     helicopter should move forward a bit 
-
+    camera may be added
 
 enemy ;
 
