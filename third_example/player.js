@@ -52,9 +52,12 @@ export class Player {
     }
 
     bombshot (){
-        this.bombList.push(new Bomb(this.x + 15, this.y + 20));
-    }
-    
+        const bombOffset = {
+            x : 15,
+            y : 20
+        }
+        this.bombList.push(new Bomb(this.x + bombOffset.x, this.y + bombOffset.y));
+    }    
     move (amount){
         this.y += amount
     }
