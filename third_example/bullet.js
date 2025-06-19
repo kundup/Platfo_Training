@@ -2,7 +2,7 @@ export class Bullet {
     constructor(x, y){
         this.x = x;
         this.y = y;
-        this.speed = 3;
+        this.speed = 3.5;
         this.width = this.height = 18;
         this.image = document.getElementById("bullet");
         this.fire = false;
@@ -24,7 +24,7 @@ export class Bomb {
     constructor(x,y){
         this.x = x;
         this.y = y;
-        this.speed = 6;
+        this.speed = 6.5;
         this.width = this.height = 45;
         this.image = document.getElementById("bomb");
     }

@@ -37,11 +37,15 @@ export class Player {
         }
         this.frameCounter ++;
 
-        this.bombList.forEach(bomb => bomb.update());
-        this.bulletList.forEach(bullet => bullet.update());
-        this.bulletList = this.bulletList.filter(bullet => bullet.x >= 0);
-        this.bombList = this.bombList.filter (bomb => bomb.x >= 0);
-        
+        this.bombList.forEach(bomb => {
+            bomb.update()
+            return bomb.x >= 0
+        })
+            
+        this.bulletList.forEach(bullet => {
+            bullet.update()
+            return bullet.x >= 0
+        });           
     }     
     shoot (){
         const baseLeftx = this.x + this.offset.left.x;

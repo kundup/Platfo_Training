@@ -39,6 +39,7 @@ weather;
     have the weather integrated with season;
 
 season;
-    needs to be creates
+    needs to be creates 3 season
+    night and day time
 
 globals;

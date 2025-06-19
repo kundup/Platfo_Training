@@ -13,7 +13,7 @@ export function KeyboardControl(controls = {}){
             controls.onShoot?.();
         }
 
-        if(event.key === "q"){
+        if(event.key === "f"){
             controls.rocket?.();
         }        
     })
