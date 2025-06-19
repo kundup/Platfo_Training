@@ -28,7 +28,11 @@ KeyboardControl({
     onDown : () => player.move(10),
     onShoot : () => {
         player.shoot()
+    },
+    rocket : () => {
+        player.bombshot()
     }
+
 });
 
 function weatherText(){

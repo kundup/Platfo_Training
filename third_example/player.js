@@ -1,4 +1,4 @@
-import { Bullet } from "./bullet.js";
+import { Bullet, Bomb } from "./bullet.js";
 
 export class Player {
     constructor(){
@@ -6,7 +6,8 @@ export class Player {
         this.x = 650;
         this.y = 100;
         this.velY = 15;   
-        this.bulletList = [];     
+        this.bulletList = []; 
+        this.bombList = [];    
         this.image = document.getElementById("player"); 
         this.sourceWidth = this.sourceHeight = 250;
         this.sourceX = 0;
@@ -27,6 +28,7 @@ export class Player {
         // })        
         ctx.drawImage(this.image, this.sourceX * this.sourceWidth, this.sourceY * this.sourceHeight, this.sourceWidth, this.sourceHeight, this.x, this.y, this.width, this.height);
         this.bulletList.forEach(bullet => bullet.draw(ctx))
+        this.bombList.forEach(bomb => bomb.draw(ctx));
     }
     update(){   
         if(this.frameCounter === this.frameInterval){            
@@ -35,9 +37,11 @@ export class Player {
         }
         this.frameCounter ++;
 
+        this.bombList.forEach(bomb => bomb.update());
         this.bulletList.forEach(bullet => bullet.update());
         this.bulletList = this.bulletList.filter(bullet => bullet.x >= 0);
-        console.log(this.bulletList);
+        this.bombList = this.bombList.filter (bomb => bomb.x >= 0);
+        
     }     
     shoot (){
         const baseLeftx = this.x + this.offset.left.x;
@@ -46,6 +50,11 @@ export class Player {
         const baseRighty = this.y + this.offset.right.y
         this.bulletList.push(new Bullet(baseLeftx, baseLefty), new Bullet(baseRightx, baseRighty));
     }
+
+    bombshot (){
+        this.bombList.push(new Bomb(this.x + 15, this.y + 20));
+    }
+    
     move (amount){
         this.y += amount
     }

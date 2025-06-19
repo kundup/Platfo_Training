@@ -19,3 +19,21 @@ export class Bullet {
         this.x -= this.speed;
     }   
 }
+
+export class Bomb {
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+        this.speed = 6;
+        this.width = this.height = 45;
+        this.image = document.getElementById("bomb");
+    }
+
+    draw (ctx){
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
+    update (){
+        this.x -= this.speed;
+    }
+}

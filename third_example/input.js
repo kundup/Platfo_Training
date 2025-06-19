@@ -11,9 +11,11 @@ export function KeyboardControl(controls = {}){
         }
         if(event.key === " "){            
             controls.onShoot?.();
-         
-
         }
+
+        if(event.key === "q"){
+            controls.rocket?.();
+        }        
     })
 }
         
