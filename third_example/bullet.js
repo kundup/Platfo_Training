@@ -37,3 +37,25 @@ export class Bomb {
         this.x -= this.speed;
     }
 }
+
+export class Ballistics {
+
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+        this.speed = {
+            x : 8,
+            y : 2
+        }
+        this.width = this.height = 45;
+        this.image = document.getElementById("bomb");
+    }
+
+    draw (ctx){
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
+    update (){
+        this.x -= this.speed.x;
+    }    
+}

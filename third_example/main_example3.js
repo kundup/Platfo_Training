@@ -36,7 +36,7 @@ KeyboardControl({
 });
 
 function weatherText(){
-    weatherDiv.innerText = `Weather : ${currentSystem.name}`;
+    weatherDiv.innerText = `Weather: ${currentSystem.name}`;
 }
 function weatherSystemDetermination(ctx){
     if (currentSystem instanceof Sunny){
