@@ -29,7 +29,7 @@ export class Snow {
         return this.shouldDrawFog         
     }
 
-    spawnSnow (n = 50){
+    spawnSnow (n = 300){
         for (let i = 0; i < n; i ++){
             const snowflake = {
                 x : Math.random() * CANVAS_WIDTH,
@@ -87,7 +87,7 @@ export class Rain {
         return this.shouldDrawFog
     }
 
-    spawnRain (n = 200){
+    spawnRain (n = 300){
         for (let i = 0; i < n; i ++){
 
             const rainflake = {
