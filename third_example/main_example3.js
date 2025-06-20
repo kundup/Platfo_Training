@@ -2,7 +2,7 @@ import { Player } from "./player.js";
 import { Enemies } from "./enemy.js";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR } from "./globals.js";
 import { KeyboardControl } from "./input.js";
-import { Snow, Rain, Sunny } from "./weather.js";
+import { Snow, Rain, Sunny, Fog } from "./weather.js";
 import { Graphics } from "./ui.js";
 import { Bullet } from "./weapon.js"
 
@@ -13,10 +13,12 @@ const WIDTH = canvasel.width = CANVAS_WIDTH;
 const HEIGHT = canvasel.height = CANVAS_HEIGHT;
 
 const weatherDiv = document.getElementById("weather");
+const fogDiv = document.getElementById("Fog");
 const bullet = new Bullet();
 const graphics = new Graphics();
 const player = new Player(WIDTH);
 const enemies = new Enemies ();
+const fog = new Fog();
 const weatherSystem = [new Sunny(), new Rain(), new Snow()];
 const currentSystem = weatherSystem[Math.floor(Math.random() * weatherSystem.length)];
 const backGroundImage = document.getElementById("background");
@@ -35,22 +37,25 @@ KeyboardControl({
 
 });
 
-function weatherText(){
+function weatherText(ctx){
+    const fogExist = currentSystem.draw?.(ctx)?? false;
     weatherDiv.innerText = `Weather: ${currentSystem.name}`;
+    fogDiv.innerText = `Fog : ${fogExist ? "Yes" : "No"}`;
 }
-function weatherSystemDetermination(ctx){
+
+function weatherSystemDetermination(ctx){    
     if (currentSystem instanceof Sunny){
         return;
     }
-    else {
+    else {        
         currentSystem.draw(ctx);
         currentSystem.update();
         ctx.fillStyle = "rgba(50, 50, 50, 0.35)";
-        ctx.fillRect(0, 0, WIDTH, HEIGHT);        
+        ctx.fillRect(0, 0, WIDTH, HEIGHT);                
     }    
 }
 
-weatherText();
+weatherText(context);
 
 
 function animate (){    

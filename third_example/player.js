@@ -18,7 +18,8 @@ export class Player {
         this.offset = {
             left : {x : 8, y : 54 },          
             right : {x: 10, y : 61}
-        }    
+        } 
+
     }
     draw (ctx){
         // ctx.fillStyle = "black";
@@ -52,7 +53,8 @@ export class Player {
         const baseLefty = this.y + this.offset.left.y;
         const baseRightx = this.x + this.offset.right.x;
         const baseRighty = this.y + this.offset.right.y
-        this.bulletList.push(new Bullet(baseLeftx, baseLefty), new Bullet(baseRightx, baseRighty));
+        this.bulletList.push(new Bullet(baseLeftx, baseLefty), new Bullet(baseRightx, baseRighty));        
+
     }
 
     bombshot (){
@@ -60,7 +62,7 @@ export class Player {
             x : 15,
             y : 20
         }
-        this.bombList.push(new Bomb(this.x + bombOffset.x, this.y + bombOffset.y));
+        this.bombList.push(new Bomb(this.x + bombOffset.x, this.y + bombOffset.y));        
     }    
     move (amount){
         this.y += amount

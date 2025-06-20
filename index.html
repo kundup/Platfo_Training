@@ -27,13 +27,22 @@
                 font-size: 12px;
                 color: yellow; 
             }
+
+            #Fog {
+                position: absolute;                
+                top: 25px;
+                left: 350px;
+                font-size: 12px;
+                color: yellow; 
+            }
         </style>
     </head>
     <body>
         <div id="game-container">
             <canvas id="canvas"></canvas> 
             <div id="score">Skor: 0</div> 
-            <div id="weather">Weather: Sunny </div>          
+            <div id="weather">Weather: Sunny </div>
+            <div id="Fog">Fog: No</div>        
         </div>   
         <img id="background" src="third_example/images/background.png" style="display: none;"/> 
         <img id="player" src="third_example/images/heli_spritesheet.png" style="display: none;"/>
@@ -42,6 +51,7 @@
         <img id = "rain" src = "third_example/images/rain_.png" style="display: none;"/>
         <img id = "snow" src = "third_example/images/snow.png" style="display: none;"/>
         <img id = "hud" src = "third_example/images/topBarBackground.png" style="display: none;"/>
+        <img id = "fog" src = "third_example/images/fog.png" style="display: none;"/>
         <script type="module" src= "third_example/main_example3.js"></script>        
     </body>
 </html>
