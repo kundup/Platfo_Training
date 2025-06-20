@@ -38,7 +38,9 @@ bullet;
 weather;
     have the weather integrated with season;
     fog integrated the weather conditions of snow and rain.
-    visibility arrange according to weather condition and added to the hud
+    visibility arrange according to weather condition and added to the hud;
+        
+        
 
 season;
     needs to be creates 3 season

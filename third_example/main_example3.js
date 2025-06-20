@@ -55,6 +55,10 @@ function weatherSystemDetermination(ctx){
     }    
 }
 
+function visibilityRateCalculation (){
+    
+}
+
 weatherText(context);
 
 
