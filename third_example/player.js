@@ -1,4 +1,4 @@
-import { Bullet, Bomb } from "./bullet.js";
+import { Bullet, Bomb } from "./weapon.js";
 
 export class Player {
     constructor(){

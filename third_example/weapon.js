@@ -6,6 +6,8 @@ export class Bullet {
         this.width = this.height = 18;
         this.image = document.getElementById("bullet");
         this.fire = false;
+        this.damage = 5;
+        this.quantity = 200;
     }
     draw(ctx){
 
@@ -27,6 +29,8 @@ export class Bomb {
         this.speed = 6.5;
         this.width = this.height = 45;
         this.image = document.getElementById("bomb");
+        this.damage = 15;
+        this.quantity = 30;
     }
 
     draw (ctx){
@@ -49,6 +53,8 @@ export class Ballistics {
         }
         this.width = this.height = 45;
         this.image = document.getElementById("bomb");
+        this.damage = 25;
+        this.quantity = 5;
     }
 
     draw (ctx){

@@ -4,7 +4,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR } from "./globals.js";
 import { KeyboardControl } from "./input.js";
 import { Snow, Rain, Sunny } from "./weather.js";
 import { Graphics } from "./ui.js";
-import { Bullet } from "./bullet.js"
+import { Bullet } from "./weapon.js"
 
 const canvasel = document.getElementById("canvas");
 const context = canvasel.getContext("2d");
