@@ -6,15 +6,14 @@ export class Snow {
         this.radius = 2.5;
         this.speed = 1;
         this.spawnSnow();
-        this.name = "Snow";    
+        this.image = document.getElementById("snow");
+        this.name = "Snow";
+
     }
 
     draw (ctx) {  
         this.snowFlakes.forEach((flakes)=> {
-            ctx.beginPath();
-            ctx.fillStyle = flakes.flakecolor;
-            ctx.arc(flakes.x, flakes.y, this.radius, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.drawImage(this.image, flakes.x, flakes.y);
         })     
     }
 
@@ -48,15 +47,14 @@ export class Rain {
         this.radius = 2;
         this.speed = 8;
         this.spawnRain();
+        this.image = document.getElementById("rain");
         this.name = "Rain";   
     }
 
     draw (ctx) {  
-        this.rainFlakes.forEach((flakes)=> {
-            ctx.beginPath();
-            ctx.fillStyle = flakes.flakecolor;
-            ctx.arc(flakes.x, flakes.y, this.radius, 0, Math.PI * 2);
-            ctx.fill();
+        this.rainFlakes.forEach((flakes)=> {        
+            ctx.drawImage(this.image, flakes.x, flakes.y);
+
         })     
     }
 

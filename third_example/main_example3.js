@@ -45,6 +45,8 @@ function weatherSystemDetermination(ctx){
     else {
         currentSystem.draw(ctx);
         currentSystem.update();
+        ctx.fillStyle = "rgba(50, 50, 50, 0.35)";
+        ctx.fillRect(0, 0, WIDTH, HEIGHT);        
     }    
 }
 
