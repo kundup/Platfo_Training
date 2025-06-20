@@ -5,10 +5,14 @@ export class Graphics {
             y: 0,
             w : 800,
             h : 28,
+            image : document.getElementById("hud")
         }
     }
     drawHud (ctx, hudColor){
-        ctx.fillStyle = hudColor;
-        ctx.fillRect(this.hud.x, this.hud.y, this.hud.w, this.hud.h);
+        ctx.save();        
+        ctx.globalAlpha = 0.25;
+        ctx.drawImage(this.hud.image, this.hud.x, this.hud.y, this.hud.w, this.hud.h);
+        ctx.restore();
     }
+
 }
