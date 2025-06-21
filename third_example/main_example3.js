@@ -4,22 +4,27 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR } from "./globals.js";
 import { KeyboardControl } from "./input.js";
 import { Snow, Rain, Sunny, Fog } from "./weather.js";
 import { Graphics } from "./ui.js";
-import { Bullet } from "./weapon.js"
+import { Bullet } from "./weapon.js";
 
 const canvasel = document.getElementById("canvas");
 const context = canvasel.getContext("2d");
-
 const WIDTH = canvasel.width = CANVAS_WIDTH;
 const HEIGHT = canvasel.height = CANVAS_HEIGHT;
+
+// div elements
 const weatherDiv = document.getElementById("weather");
 const fogDiv = document.getElementById("Fog");
+
+// classses introduced
 const bullet = new Bullet();
 const graphics = new Graphics();
-const player = new Player(WIDTH);
+const player = new Player();
 const enemies = new Enemies ();
 const fog = new Fog();
 const weatherSystem = [new Sunny(), new Rain(), new Snow()];
 const currentSystem = weatherSystem[Math.floor(Math.random() * weatherSystem.length)];
+
+// backgorunds
 const backGroundImage = document.getElementById("background");
 const bgSpeed = 1;
 let backgroundX = 0;
@@ -32,9 +37,8 @@ KeyboardControl({
         graphics.updateAmmo();
     },
     rocket : () => {
-        player.bombshot()
+        player.bombshot();
     }
-
 });
 
 function weatherText(ctx){
@@ -54,22 +58,16 @@ function weatherSystemDetermination(ctx){
         ctx.fillRect(0, 0, WIDTH, HEIGHT);                
     }    
 }
-
-function visibilityRateCalculation (){
-    // calculate visibility    
-}
-
-
 function UIgraphics(){
     weatherText(context);
     graphics.drawHealthBar(context, 150, 600, 150, 10, 75, 100, "[ Health:              ]");
     graphics.drawHud(context, COLOR.hudColor); // hud drawing on top
     graphics.drawAmmo(context, 150, 620, 150, 10, "[ Ammo:                ]");
-
-
 }
 
-
+function visibilityRateCalculation (){
+    // calculate visibility    
+}
 
 function animate (){    
     context.clearRect(0, 0, WIDTH, HEIGHT);
@@ -79,19 +77,19 @@ function animate (){
     }
     context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
     context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
-    UIgraphics();
-    
-    
-    
+    UIgraphics(); 
+
     //weather system
     weatherSystemDetermination(context);
+
     //enemies animation
     enemies.drawRect(context);
-    enemies.updateRect();    
+    enemies.updateRect();  
+
     // player animation
     player.draw(context);
     player.update();
-    requestAnimationFrame(animate)
+    requestAnimationFrame(animate);
 }
 
 // check the images are loaded

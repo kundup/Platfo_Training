@@ -18,10 +18,10 @@ entity;
     make fishes
     hearth
     gold 
+    
 general;
     collision detection
     bomb effect
-
 
 bullet;
     ** a pair of bullet now fired when pressing space; done
