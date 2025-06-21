@@ -18,7 +18,7 @@ entity;
     make fishes
     hearth
     gold 
-    
+
 general;
     collision detection
     bomb effect
@@ -31,8 +31,9 @@ bullet;
     move to the bullet class -done
 
 weather;
-    have the weather integrated with season;
-    fog integrated the weather conditions of snow and rain.
+    cloud class created - done
+    have the weather integrated with season; - now weather changed by deltatime
+    fog integrated the weather conditions of snow and rain. - done
     visibility arrange according to weather condition and added to the hud;        
 
 season;
