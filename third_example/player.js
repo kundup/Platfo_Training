@@ -1,9 +1,10 @@
 import { Bullet, Bomb } from "./weapon.js";
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./globals.js";
 
 export class Player {
     constructor(){
         this.height = this.width = 100;    
-        this.x = 650;
+        this.x = CANVAS_WIDTH -200;
         this.y = 100;
         this.velY = 15;   
         this.bulletList = []; 

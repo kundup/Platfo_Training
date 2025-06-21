@@ -1,6 +1,5 @@
 import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR} from "./globals.js";
 
-
 export class Snow {
     constructor (){ 
         this.snowFlakes = [];        
@@ -136,6 +135,6 @@ export class Fog {
         this.image = document.getElementById("fog");
     }
     draw (ctx){
-        ctx.drawImage(this.image, 0, 0, 1000, 750);                   
+        ctx.drawImage(this.image, 0, 0, 1100, 750);                   
     }
 }

@@ -1,5 +1,5 @@
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 800;
+const CANVAS_WIDTH = 1200;
+const CANVAS_HEIGHT = 720;
 const COLOR = {
     snow : "white",
     rain : "lightgray",

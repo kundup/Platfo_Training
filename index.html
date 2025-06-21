@@ -7,24 +7,25 @@
             body {
                 background-color: beige;
                 font-family: 'Press Start 2P', cursive;;
-                margin: 0px;
-                padding: 20px;
+                margin: 5px;
+                padding: 10px;
+                overflow: hidden
             }             
             canvas {
                 border: 1px solid black;                
             }
-            #score {
+            #gold {
                 position: absolute;
                 top: 25px;
                 left: 30px;
-                font-size: 12px;
+                font-size: 10px;
                 color: yellow
             }
             #weather {
                 position: absolute;                
                 top: 25px;
                 left: 150px;
-                font-size: 12px;
+                font-size: 10px;
                 color: yellow; 
             }
 
@@ -32,7 +33,7 @@
                 position: absolute;                
                 top: 25px;
                 left: 350px;
-                font-size: 12px;
+                font-size: 10px;
                 color: yellow; 
             }
         </style>
@@ -40,7 +41,7 @@
     <body>
         <div id="game-container">
             <canvas id="canvas"></canvas> 
-            <div id="score">Skor: 0</div> 
+            <div id="gold">Gold: 0</div> 
             <div id="weather">Weather: Sunny </div>
             <div id="Fog">Fog: No</div>        
         </div>   

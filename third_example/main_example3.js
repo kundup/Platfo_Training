@@ -11,7 +11,6 @@ const context = canvasel.getContext("2d");
 
 const WIDTH = canvasel.width = CANVAS_WIDTH;
 const HEIGHT = canvasel.height = CANVAS_HEIGHT;
-
 const weatherDiv = document.getElementById("weather");
 const fogDiv = document.getElementById("Fog");
 const bullet = new Bullet();
@@ -56,7 +55,7 @@ function weatherSystemDetermination(ctx){
 }
 
 function visibilityRateCalculation (){
-    
+    // calculate visibility    
 }
 
 weatherText(context);
@@ -71,6 +70,8 @@ function animate (){
     context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
     context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
     graphics.drawHud(context, COLOR.hudColor); // hud drawing on top
+    graphics.drawHealthBar(context, 150, 600, 150, 10, 75, "[ Health:              ]");
+    
     //weather system
     weatherSystemDetermination(context);
     //enemies animation
