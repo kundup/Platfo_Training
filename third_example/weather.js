@@ -129,14 +129,20 @@ export class Fog {
     constructor(){
         this.name = "fog";
         this.image = document.getElementById("fog");
+        this.fogRate = Math.random() * 0.2;
+        this.fogStyle = `rgba(255, 255, 255, ${this.fogRate})`
     }
-    draw (ctx){
-        ctx.drawImage(this.image, 0, 0, 1100, 750);                   
+    draw (ctx){        
+        ctx.save();    
+        ctx.fillStyle = this.fogStyle;
+        ctx.fillRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        ctx.drawImage(this.image, 0, 0, 1100, 750);
+        ctx.restore();                   
     }
 }
 
 export class Cloud {
-    
+
     constructor(){
         this.name = "Cloudy";
         this.fog = new Fog();

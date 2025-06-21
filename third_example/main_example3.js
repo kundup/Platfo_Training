@@ -54,9 +54,9 @@ function weatherText(ctx){
 
 function UpdateWeatherSystem (deltatime){    
     weatherTimer += deltatime;
-    if (weatherTimer >= Math.random() * 100 + 15){
+    if (weatherTimer >= Math.random() * 100 + 25){
         currentWeatherIndex = (currentWeatherIndex + 1 ) % weatherSystem.length;
-        weatherSystem = [new Sunny, new Cloud(), new Rain(), new Cloud(), new Snow(), new Cloud()]
+        weatherSystem = [new Sunny, new Cloud(), new Rain(), new Cloud(), new Rain() , new Cloud(), new Snow()]
         currentSystem = weatherSystem[currentWeatherIndex];
         weatherTimer = 0;
     }   
