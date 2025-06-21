@@ -28,7 +28,8 @@ KeyboardControl({
     onUp : () => player.move(-10),
     onDown : () => player.move(10),
     onShoot : () => {
-        player.shoot()
+        player.shoot();
+        graphics.updateAmmo();
     },
     rocket : () => {
         player.bombshot()
@@ -58,7 +59,16 @@ function visibilityRateCalculation (){
     // calculate visibility    
 }
 
-weatherText(context);
+
+function UIgraphics(){
+    weatherText(context);
+    graphics.drawHealthBar(context, 150, 600, 150, 10, 75, 100, "[ Health:              ]");
+    graphics.drawHud(context, COLOR.hudColor); // hud drawing on top
+    graphics.drawAmmo(context, 150, 620, 150, 10, "[ Ammo:                ]");
+
+
+}
+
 
 
 function animate (){    
@@ -69,8 +79,9 @@ function animate (){
     }
     context.drawImage(backGroundImage, backgroundX, 0, WIDTH, HEIGHT);
     context.drawImage(backGroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT);
-    graphics.drawHud(context, COLOR.hudColor); // hud drawing on top
-    graphics.drawHealthBar(context, 150, 600, 150, 10, 75, "[ Health:              ]");
+    UIgraphics();
+    
+    
     
     //weather system
     weatherSystemDetermination(context);

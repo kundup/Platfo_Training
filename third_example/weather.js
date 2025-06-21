@@ -119,7 +119,6 @@ export class Rain {
 
         this.rainFlakes = this.rainFlakes.filter(flakes => flakes.y <= CANVAS_HEIGHT);
         this.spawnRain(targetRainNumber - this.rainFlakes.length);
-        console.log(this.rainFlakes.length);
     }
 }
 

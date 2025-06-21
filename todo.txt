@@ -1,46 +1,39 @@
 player ;
-
-    animation for helicopter completed.
+    animation for helicopter - done.
     helicopter should move forward a bit 
     camera may be added
 
-enemy ;
-
+enemy;
     enemy birds;
     enemy seabots
     enemy tanks
 
 grafik;
-    show the invemtory of bullets
-    show the health
-
-
+    make and calculate the dynamic changes on bars
+        - show the invemtory of bullets -done
+        - show the health -done
+        - show the visibility of air,
 entity;
-
     make fuel tanks
     make fishes
     hearth
     gold 
-
 general;
     collision detection
     bomb effect
 
 
 bullet;
-    ** a pair of bullet now fired when pressing space;
+    ** a pair of bullet now fired when pressing space; done
 
-    make bomb for helicopter -
+    make bomb for helicopter - 3 special ballsitic fuse
     make rocket for helicopter -done
     move to the bullet class -done
-
 
 weather;
     have the weather integrated with season;
     fog integrated the weather conditions of snow and rain.
-    visibility arrange according to weather condition and added to the hud;
-        
-        
+    visibility arrange according to weather condition and added to the hud;        
 
 season;
     needs to be creates 3 season
