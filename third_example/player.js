@@ -31,7 +31,7 @@ export class Player {
         this.bulletList.forEach(bullet => bullet.draw(ctx))
         this.bombList.forEach(bomb => bomb.draw(ctx));
     }
-    update(){   
+    update(deltatime){   
         if(this.frameCounter === this.frameInterval){            
             this.sourceX = (this.sourceX + 1) % this.totalFrame;
             this.frameCounter = 0;

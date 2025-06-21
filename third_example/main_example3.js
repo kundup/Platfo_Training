@@ -21,8 +21,12 @@ const graphics = new Graphics();
 const player = new Player();
 const enemies = new Enemies ();
 const fog = new Fog();
-const weatherSystem = [new Sunny(), new Rain(), new Snow()];
-const currentSystem = weatherSystem[Math.floor(Math.random() * weatherSystem.length)];
+let weatherSystem = [new Sunny()];
+
+// weather
+let currentWeatherIndex = 0
+let currentSystem = weatherSystem[currentWeatherIndex];
+let weatherTimer = 0;
 
 // backgorunds
 const backGroundImage = document.getElementById("background");
@@ -47,7 +51,19 @@ function weatherText(ctx){
     fogDiv.innerText = `Fog : ${fogExist ? "Yes" : "No"}`;
 }
 
-function weatherSystemDetermination(ctx){    
+
+function UpdateWeatherSystem (deltatime){    
+    weatherTimer += deltatime;
+    if (weatherTimer >= 10){
+        currentWeatherIndex = (currentWeatherIndex + 1 ) % weatherSystem.length;
+        weatherSystem = [new Sunny, new Rain(), new Snow()]
+        currentSystem = weatherSystem[currentWeatherIndex];
+        weatherTimer = 0;
+    }   
+}
+
+function weatherSystemDetermination(ctx){ 
+    
     if (currentSystem instanceof Sunny){
         return;
     }
@@ -69,7 +85,12 @@ function visibilityRateCalculation (){
     // calculate visibility    
 }
 
-function animate (){    
+let lastTime = 0
+function animate (timestamp){ 
+    
+    const deltatime = (timestamp - lastTime)/ 1000;
+    lastTime = timestamp;
+
     context.clearRect(0, 0, WIDTH, HEIGHT);
     backgroundX -= bgSpeed; 
     if (backgroundX <= -WIDTH) {
@@ -80,24 +101,26 @@ function animate (){
     UIgraphics(); 
 
     //weather system
+    UpdateWeatherSystem(deltatime);
     weatherSystemDetermination(context);
 
     //enemies animation
     enemies.drawRect(context);
-    enemies.updateRect();  
+    enemies.updateRect(deltatime);  
 
     // player animation
     player.draw(context);
-    player.update();
+    player.update(deltatime);
+
     requestAnimationFrame(animate);
 }
 
 // check the images are loaded
 if (backGroundImage.complete){
-    animate();
+    requestAnimationFrame(animate);
 } else {
     backGroundImage.onload = () => {
-        animate();        
+        requestAnimationFrame(animate);        
     }
 }
 

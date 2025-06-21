@@ -54,7 +54,6 @@ export class Graphics {
 
         ctx.fillStyle = "rgba(255,255,255,0.4)";
         const ratio = this.bulletnumber / this.maximumBullet;
-        console.log(ratio);
         ctx.fillRect(x, y, ratio * width, height);
         
         ctx.strokeStyle = "white";

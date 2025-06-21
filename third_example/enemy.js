@@ -34,7 +34,7 @@ export class Enemies{
         })
     }
     
-    updateRect(){
+    updateRect(deltatime){
     
         let target_number = this.rectList.length;
         this.rectList.forEach((rect)=>{
