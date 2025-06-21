@@ -43,7 +43,6 @@ export class Bomb {
 }
 
 export class Ballistics {
-
     constructor(x,y){
         this.x = x;
         this.y = y;
@@ -56,11 +55,9 @@ export class Ballistics {
         this.damage = 25;
         this.quantity = 5;
     }
-
     draw (ctx){
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
-
     update (){
         this.x -= this.speed.x;
     }    

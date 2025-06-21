@@ -20,7 +20,6 @@ export class Player {
             left : {x : 8, y : 54 },          
             right : {x: 10, y : 61}
         } 
-
     }
     draw (ctx){
         // ctx.fillStyle = "black";
@@ -54,10 +53,8 @@ export class Player {
         const baseLefty = this.y + this.offset.left.y;
         const baseRightx = this.x + this.offset.right.x;
         const baseRighty = this.y + this.offset.right.y
-        this.bulletList.push(new Bullet(baseLeftx, baseLefty), new Bullet(baseRightx, baseRighty));        
-
+        this.bulletList.push(new Bullet(baseLeftx, baseLefty), new Bullet(baseRightx, baseRighty)); 
     }
-
     bombshot (){
         const bombOffset = {
             x : 15,

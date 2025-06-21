@@ -58,10 +58,8 @@ export class Graphics {
         ctx.fillRect(x, y, ratio * width, height);
         
         ctx.strokeStyle = "white";
-        ctx.strokeRect(x, y, width, height)
-
+        ctx.strokeRect(x, y, width, height);
     }
-
     updateAmmo(){
         if (this.bulletnumber <= 2){
             this.bulletnumber = 0

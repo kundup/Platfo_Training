@@ -62,7 +62,6 @@ export class Snow {
         
     }
 }
-
 export class Rain {
     constructor (){     
         this.rainFlakes = [];        
@@ -121,13 +120,11 @@ export class Rain {
         this.spawnRain(targetRainNumber - this.rainFlakes.length);
     }
 }
-
 export class Sunny {
     constructor(){
         this.name = "Sunny";
     }
 }
-
 export class Fog {
     constructor(){
         this.name = "fog";
