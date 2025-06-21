@@ -134,3 +134,24 @@ export class Fog {
         ctx.drawImage(this.image, 0, 0, 1100, 750);                   
     }
 }
+
+export class Cloud {
+    
+    constructor(){
+        this.name = "Cloudy";
+        this.fog = new Fog();
+    }
+
+    draw (ctx) {  
+                
+        if (this.shouldDrawFog === undefined){
+            this.shouldDrawFog = Math.random() < 0.7 ;
+        }
+        if (this.shouldDrawFog){
+            this.fog.draw(ctx);
+        }
+
+        return this.shouldDrawFog
+    }
+
+}

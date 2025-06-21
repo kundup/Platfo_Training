@@ -2,7 +2,7 @@ import { Player } from "./player.js";
 import { Enemies } from "./enemy.js";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, COLOR } from "./globals.js";
 import { KeyboardControl } from "./input.js";
-import { Snow, Rain, Sunny, Fog } from "./weather.js";
+import { Snow, Rain, Sunny, Fog, Cloud } from "./weather.js";
 import { Graphics } from "./ui.js";
 import { Bullet } from "./weapon.js";
 
@@ -54,9 +54,9 @@ function weatherText(ctx){
 
 function UpdateWeatherSystem (deltatime){    
     weatherTimer += deltatime;
-    if (weatherTimer >= 10){
+    if (weatherTimer >= Math.random() * 100 + 15){
         currentWeatherIndex = (currentWeatherIndex + 1 ) % weatherSystem.length;
-        weatherSystem = [new Sunny, new Rain(), new Snow()]
+        weatherSystem = [new Sunny, new Cloud(), new Rain(), new Cloud(), new Snow(), new Cloud()]
         currentSystem = weatherSystem[currentWeatherIndex];
         weatherTimer = 0;
     }   
@@ -66,10 +66,10 @@ function weatherSystemDetermination(ctx){
     
     if (currentSystem instanceof Sunny){
         return;
-    }
+    }     
     else {        
-        currentSystem.draw(ctx);
-        currentSystem.update();
+        currentSystem.draw?.(ctx);
+        currentSystem.update?.();
         ctx.fillStyle = "rgba(50, 50, 50, 0.35)";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);                
     }    
