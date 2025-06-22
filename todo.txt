@@ -8,6 +8,11 @@ enemy;
     enemy seabots
     enemy tanks
 
+background;
+    class created
+    5 images neeeds to be created
+    background speed is to adjusted
+
 grafik;
     make and calculate the dynamic changes on bars
         - show the invemtory of bullets -done

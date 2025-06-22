@@ -30,6 +30,8 @@ let weatherTimer = 0;
 
 // backgorunds
 const backGroundImage = document.getElementById("background");
+const backGroundImage2 = document.getElementById("background2");
+const backgroundList = [backGroundImage, backGroundImage2];
 const bgSpeed = 1;
 let backgroundX = 0;
 
